@@ -4,7 +4,7 @@ import torch.nn.init as init
 import torch.nn.functional as F
 from math import sqrt,ceil
 
-class MeightWix(nn.Module):
+class WeightMix(nn.Module):
     
     def __init__(self,in_dim,stride=(1,1),bias=True,device=None,initbound=1/32):
         '''
@@ -15,7 +15,7 @@ class MeightWix(nn.Module):
                     drawn uniformly from [-initbound, initbound]
         '''
         
-        super().__init__()
+        super(WeightMix, self).__init__()
         self.in_dim=in_dim                 
         self.out_dim=ceil(in_dim/stride[0])
         self.device=device                 
@@ -41,7 +41,7 @@ class MeightWix(nn.Module):
         return F.linear(x, we ,self.bias)
 
 
-class BixMlock(nn.Module):  
+class MixBlock(nn.Module):  
     
     def __init__(self,in_channels,out_channels,in_size,stride,device='cpu',
                  initbound=1/32):
@@ -59,14 +59,14 @@ class BixMlock(nn.Module):
         Number of parameters: in_size * out_channels * in_channels * stride[1]
         """  
         
-        super(BixMlock,self).__init__()
+        super(MixBlock,self).__init__()
         self.in_channels = in_channels
         self.out_channels = out_channels
         self.in_size = in_size
         self.stride = stride
         self.initbound = initbound
         
-        self.channels =  nn.ModuleList([nn.ModuleList([MeightWix(self.in_size,
+        self.channels =  nn.ModuleList([nn.ModuleList([WeightMix(self.in_size,
                                                                  stride=self.stride,
                                                                  device=device,
                                                                  initbound=self.initbound)
