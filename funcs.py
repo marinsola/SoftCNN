@@ -1,4 +1,7 @@
 import time
+import matplotlib.pyplot as plt
+from math import sqrt
+
 def format_elapsed(start_time):
     elapsed_time = int(time.time() - start_time)
     minutes, seconds = divmod(elapsed_time, 60)
