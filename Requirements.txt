@@ -1,4 +1,4 @@
 torch.__version__ == 2.2.1+cu121
-np.__version__ == 1.25.2
-pd.__version__ == 1.5.3
+numpy.__version__ == 1.25.2
+pandas.__version__ == 1.5.3
 torchvision.__version__ == 0.17.1+cu121
