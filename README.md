@@ -7,4 +7,4 @@ This repository provides code and resources associated with our paper titled _So
 ## Explore
 WM aims to simulate weight sharing while retaining flexibility. It introduces a novel architecture departing from the traditional locality assumption while retaining the element of weight sharing. It is structured as a (Mix-)block, generating vectors for each input channel and aggregating output channels for further processing. Evaluation on CIFAR and Tiny ImageNet datasets showcases WM's intermediate performance between MLPs and CNNs. Post-training, WM learns to emphasize locality, resembling CNN inductive bias. 
 
-![First layer reshaped weight vector of a trained model]{figure.png}
+![First layer reshaped weight vector of a trained model](figure.png)
